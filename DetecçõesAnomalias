@@ -1,0 +1,51 @@
+# Classificação de Sinistros em Transportes — Análise e Modelagem
+
+Este repositório contém o notebook desenvolvido em Google Colab para análise exploratória e preparação de dados voltados à **classificação de sinistros em operações de transporte**, utilizando um dataset real de não conformidades registradas entre 2019 e 2020.
+
+## 🔗 Notebook no Google Colab
+
+Acesse e execute o notebook diretamente pelo link abaixo:
+
+> **Colab:** https://colab.research.google.com/drive/1HY6-9Ci_KwLCA7ZkfTGveCzpbzo5hkJk?usp=sharing
+
+## 📌 Sobre o Projeto
+
+O projeto parte de um dataset de **não conformidades de transportes** (ocorrências registradas por transportadoras) e tem como objetivo construir um pipeline de dados capaz de identificar se um evento registrado constitui ou não um **sinistro** — como roubos, problemas mecânicos/elétricos, excesso de velocidade, violações de equipamento, jammers, entre outros.
+
+O fluxo completo contempla:
+
+- **Carregamento dos dados** a partir de um CSV público hospedado no GitHub
+- **Criação da variável-alvo** (`sinistro`): classificação binária (1 = sinistro / 0 = não sinistro) com base na coluna `Natureza do Evento`, a partir de uma lista de termos críticos definidos por regra de negócio
+- **Divisão treino/validação** com estratificação (80/20), garantindo proporção equilibrada da variável-alvo em ambos os conjuntos
+- **Análise exploratória (EDA)**: verificação de tipos, nulos, estatísticas descritivas e distribuição das classes
+- **Limpeza e padronização**: remoção de colunas irrelevantes ou textuais, preenchimento de nulos, correção de inconsistências em colunas como `Natureza do Evento`, `Causa Raiz` e `Local da Ocorrência` (padronização de acentuação, capitalização e duplicatas)
+- **Engenharia de features temporais**: extração de dia da semana, mês, ano, fim de semana, feriados nacionais e feriados estaduais (via biblioteca `holidays`)
+- **Correção de inconsistências no target**: eventos de `Problema Elétrico` foram revisados e uniformizados como sinistro com base em análise cruzada
+- **Visualizações**: gráficos de rosca, barras e countplots analisando a distribuição de sinistros por dia da semana, hora do dia, feriados e transportadora
+- **Seleção de features finais** para modelagem, resultando em um DataFrame enxuto com as colunas mais relevantes para o modelo preditivo
+
+## 🧩 Tecnologias e Bibliotecas
+
+- **Python 3** no ambiente **Google Colab**
+- `pandas` — manipulação e tratamento de dados
+- `numpy` — operações numéricas
+- `scikit-learn` — divisão treino/validação (`train_test_split`)
+- `matplotlib` e `seaborn` — visualizações
+- `holidays` — identificação de feriados nacionais e estaduais brasileiros
+
+## 📊 Dataset
+
+- **Fonte:** [`NaoConformidadeTransportes.csv`](https://raw.githubusercontent.com/alvaroriz/datascience_datasets/refs/heads/main/NaoConformidadeTransportes.csv)
+- **Período:** Janeiro de 2019 em diante
+- **Conteúdo:** Registros de ocorrências em operações de transporte, contendo informações como transportadora, veículo, origem, destino, UF, natureza do evento, causa raiz, condutor e data/hora da ocorrência
+
+## 🎯 Resultado
+
+Ao final do pipeline, são gerados dois DataFrames prontos para modelagem:
+
+| DataFrame | Uso |
+|---|---|
+| `df_final_trabalho` | Treino do modelo |
+| `df_final_validacao` | Avaliação do modelo |
+
+Ambos contam com **10 features selecionadas** + a variável-alvo `sinistro`, prontos para a etapa de modelagem preditiva.
