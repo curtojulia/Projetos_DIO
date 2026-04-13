@@ -6,7 +6,7 @@ Este repositório contém o notebook desenvolvido em Google Colab para análise 
 
 Acesse e execute o notebook diretamente pelo link abaixo:
 
-> **Colab:** https://colab.research.google.com/drive/1HY6-9Ci_KwLCA7ZkfTGveCzpbzo5hkJk?usp=sharing
+[Abrir no Google Colab](https://colab.research.google.com/drive/1HY6-9Ci_KwLCA7ZkfTGveCzpbzo5hkJk?usp=sharing)
 
 ## 📌 Sobre o Projeto
 
