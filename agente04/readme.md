@@ -78,3 +78,5 @@ adk web
 - Adicionar testes automatizados para as funções de data e integração com o Trello.
 - Utilizar uma LLM mais robusta que não fique sobrecarregada toda hora
 - Publicar esse ChatBot para uso
+
+- Baseado na aula: https://github.com/digitalinnovationone/agent-carbon-footprint/tree/main/agents/agent04
