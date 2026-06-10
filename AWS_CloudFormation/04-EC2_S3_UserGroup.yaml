@@ -1,4 +1,4 @@
-04-EC2_S3_UserGroup.yamlAWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: '2010-09-09'
 Description: CloudFormation Template to create an EC2 instance, IAM user, and S3 bucket
 
 Parameters:
